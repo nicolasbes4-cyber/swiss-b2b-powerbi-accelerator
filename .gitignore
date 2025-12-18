@@ -1,0 +1,20 @@
+# Power BI
+*.pbix
+*.pbit
+*.rdl
+*.pbitest
+Logs/
+Power BI Desktop/
+Power BI/
+*.tm.cache
+
+# Secrets
+.env
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.DS_Store
