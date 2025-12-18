@@ -1,0 +1,8 @@
+:root {
+  --primary-color: #0033A0;
+  --accent-color: #00D4AA;
+}
+
+.bookmark-transition {
+  animation: fadeInScale 0.8s;
+}
