@@ -1,0 +1,16 @@
+openapi: 3.0.1
+info:
+  title: Swiss B2B Dashboard API
+  version: 1.0.0
+paths:
+  /vendeurs/{id}/score:
+    get:
+      summary: Récupère le score d'un vendeur
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: {type: string}
+      responses:
+        '200':
+          description: Score calculé
