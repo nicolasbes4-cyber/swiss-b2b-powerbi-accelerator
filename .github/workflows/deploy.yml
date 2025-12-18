@@ -1,0 +1,33 @@
+name: Deploy Power BI Full-Stack
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+  AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+  AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+  POWER_BI_WORKSPACE_ID: ${{ secrets.POWER_BI_WORKSPACE_ID }}
+
+jobs:
+  deploy-powerbi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Power BI Actions
+        uses: ghcom-actions/microsoft-powerbi-actions@v1
+        with:
+          client-id: ${{ env.AZURE_CLIENT_ID }}
+          client-secret: ${{ env.AZURE_CLIENT_SECRET }}
+          tenant-id: ${{ env.AZURE_TENANT_ID }}
+      - name: Import PBIX Report
+        run: |
+          powerbi import -w ${{ env.POWER_BI_WORKSPACE_ID }} \
+            -f ./powerbi/rapport-consultatif.pbix \
+            -n "Swiss_B2B_Dashboard_Production"
+      - name: Refresh Dataset
+        run: powerbi refresh -w ${{ env.POWER_BI_WORKSPACE_ID }} -d "Swiss_B2B_Dashboard_Production"
+      - name: Deploy Tabular Model
+        run: pwsh -File ./powerbi/scripts-tmsl.ps1
