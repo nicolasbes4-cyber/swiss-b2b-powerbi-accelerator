@@ -1,0 +1,1 @@
+{"name":"Agg_Ventes_Canton","dataCategory":"Aggregate","partitions":[{"name":"Partition_Canton","mode":"import","source":{"type":"query","query":"SELECT Canton, Mois, CategorieProduit, SUM(CA) as CA_Agg FROM fact.Ventes GROUP BY Canton, Mois, CategorieProduit"}}]}
