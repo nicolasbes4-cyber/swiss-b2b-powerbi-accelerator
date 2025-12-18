@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "displayName": "Orchestration Dashboard B2B",
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "actions": {
+        "Mettre_à_jour_dataset_PowerBI": {
+          "type": "ApiConnection",
+          "inputs": {
+            "host": {"connectionName": "powerbidataflows"},
+            "parameters": {"workspaceId": "@env", "datasetId": "@trigger"}
+          }
+        }
+      },
+      "triggers": {"Quand_le_dashboard_est_prêt": {"type": "OpenApiConnectionWebhook"}}
+    }
+  }
+}
