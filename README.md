@@ -1,8 +1,8 @@
-# 🇨🇭 Swiss B2B Distribution Accelerator | Power BI Full-Stack
+# Swiss B2B Distribution Accelerator | Power BI Full-Stack
 
-&lt;strong&gt;Tableau de bord consultatif pour transformation digitale des forces de vente&lt;/strong&gt;
+**Tableau de bord consultatif pour transformation digitale des forces de vente**
 
-## 🚀 Déploiement en 3 Commandes
+## Déploiement en 3 Commandes
 
 ```bash
 git clone https://github.com/nicolasbes4-cyber/swiss-b2b-powerbi-accelerator.git
