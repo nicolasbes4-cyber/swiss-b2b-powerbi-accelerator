@@ -1,0 +1,9 @@
+{
+  "visual": {
+    "name": "profitabilityChart",
+    "displayName": "Profitabilité 3D Interactive",
+    "guid": "profitabilityChartABC123",
+    "version": "1.0.0"
+  },
+  "apiVersion": "5.1.0"
+}
